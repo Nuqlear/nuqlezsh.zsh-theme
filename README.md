@@ -2,10 +2,9 @@
 
 This is my theme for [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 
-## Screenshots
+## Screenshot
 ![](https://github.com/nuqlear/nuqlezsh.zsh-theme/raw/master/screenshot.png)
-_OSX terminal with [Peppermint](https://noahfrederick.com/log/lion-terminal-theme-peppermint/) theme.
-_
+_OSX terminal with [Peppermint](https://noahfrederick.com/log/lion-terminal-theme-peppermint/) theme._
 ## Specs
 
 It`s very simple theme with support only for git and [virtualenv-promt](https://github.com/tonyseek/oh-my-zsh-virtualenv-prompt) plugins.
