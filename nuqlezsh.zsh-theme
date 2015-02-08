@@ -14,4 +14,4 @@ function _git_prompt_info {
     [[ -n $(whence git_prompt_info) ]] && git_prompt_info
 }
 
-PROMPT='%{$fg[magenta]%}%~$(_virtualenv_prompt_info)$(_git_prompt_info)%{$fg_bold[magenta]%} %% %{$reset_color%}'
+PROMPT=' %{$fg[magenta]%}%~$(_virtualenv_prompt_info)$(_git_prompt_info)%{$fg_bold[magenta]%} %% %{$reset_color%}'
