@@ -1,0 +1,51 @@
+function prompt_nuqlezsh_precmd {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+
+  prompt_nuqlezsh_pwd
+
+  if (( $+functions[git-info] )); then
+    git-info
+  fi
+
+  if (($+functions[python-info] )); then
+    python-info
+  fi
+}
+
+function prompt_nuqlezsh_pwd {
+  local pwd="${PWD/#$HOME/~}"
+  if [[ "$pwd" == (#m)[/~] ]]; then
+    _prompt_nuqlezsh_pwd="$MATCH"
+    unset MATCH
+  else
+    _prompt_nuqlezsh_pwd="${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}/${pwd:t}"
+  fi
+}
+
+function prompt_nuqlezsh_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+  autoload -Uz add-zsh-hook
+  add-zsh-hook precmd prompt_nuqlezsh_precmd
+  C=(146 168)
+
+  zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary' format '%F{'$C[2]'} N' %B%F{'$C[1]'}'➤%f%b'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format '%F{'$C[2]'} I %B%F{'$C[1]'}'➤'%f%b'
+  zstyle ':prezto:module:python:info:virtualenv' format '%F{'$C[1]'}venv:%F{'$C[2]'}%v '
+  zstyle ':prezto:module:git:info' verbose 'yes'
+  zstyle ':prezto:module:git:info:action' format ':%%B%F{'$C[2]'}%s%f%%b'
+  zstyle ':prezto:module:git:info:branch' format '%F{'$C[2]'}%b%f'
+  zstyle ':prezto:module:git:info:commit' format ':%F{'$C[2]'}%.7c%f'
+  zstyle ':prezto:module:git:info:position' format ':%F{'$C[2]'}%p%f%%b'
+  zstyle ':prezto:module:git:info:dirty' format '%F{'$C[2]'}*%b%f'
+  zstyle ':prezto:module:git:info:keys' format \
+    'prompt' '%F{'$C[1]'}git:%F%f$(coalesce "%b" "%p" "%c")%s%D '
+
+  PROMPT=' ${python_info[virtualenv]}${git_info:+${(e)git_info[prompt]}}%F{'$C[1]'}%~%f${editor_info[keymap]} '
+  SPROMPT=' zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+}
+
+prompt_nuqlezsh_setup "$@"
