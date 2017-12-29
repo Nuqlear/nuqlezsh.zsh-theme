@@ -22,7 +22,7 @@ _oh-my-zsh theme looks similar but without N/I part because of lacking support o
 ### prezto
 ```bash
 $ git clone git@github.com:nuqlear/nuqlezsh.zsh-theme.git
-$ cp nuqlezsh.zsh-theme/prezto/nuqlezsh.zsh-theme ~/.zprezto/modules/prompt/functions/prompt_nuqlezsh_setup
+$ cp nuqlezsh.zsh-theme/prezto/prompt_nuqlezsh_setup ~/.zprezto/modules/prompt/functions/prompt_nuqlezsh_setup
 $ echo "zstyle ':prezto:module:prompt' theme 'nuqlezsh'" >> ~/.zpreztorc
 ```
 
