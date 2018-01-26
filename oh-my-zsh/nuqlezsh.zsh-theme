@@ -25,5 +25,5 @@ function _virtualenv_prompt_info {
 #################################
 #    final formatting
 #################################
-PROMPT='$(_virtualenv_prompt_info)$(_git_prompt_info) %{$FG[146]%}%~ %{$FG[161]%}➤ %{$reset_color%}'
+PROMPT='$(_virtualenv_prompt_info)$(_git_prompt_info) %{$FG[146]%}%~ %{$FG[161]%}➤  %{$reset_color%}'
 RPROMPT=''
