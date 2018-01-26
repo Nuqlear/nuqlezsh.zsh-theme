@@ -32,8 +32,8 @@ function prompt_nuqlezsh_setup {
   C=(146 168)
 
   zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
-  zstyle ':prezto:module:editor:info:keymap:primary' format '%F{'$C[2]'} N' %B%F{'$C[1]'}'➤%f%b'
-  zstyle ':prezto:module:editor:info:keymap:alternate' format '%F{'$C[2]'} I %B%F{'$C[1]'}'➤'%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary' format '%F{'$C[2]'} I' %B%F{'$C[1]'}'➤%f%b'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format '%F{'$C[2]'} N %B%F{'$C[1]'}'➤'%f%b'
   zstyle ':prezto:module:python:info:virtualenv' format '%F{'$C[1]'}venv:%F{'$C[2]'}%v '
   zstyle ':prezto:module:git:info' verbose 'yes'
   zstyle ':prezto:module:git:info:action' format ':%%B%F{'$C[2]'}%s%f%%b'
